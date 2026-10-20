@@ -447,7 +447,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <h2 data-split="words">One visit. One moon.</h2>
       <p class="sub">Open every day, 10:00 to 20:00, in Tangier.</p>
       <div class="ctas">
-        <a class="btn btn-accent" href="https://wa.me/34647591229?text=Hello%20La%20Luna%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">Book on WhatsApp</a>
+        <a class="btn btn-accent" href="https://salimbennani39.github.io/showcase/404.html" target="_blank" rel="noopener">Book on WhatsApp</a>
         <a class="btn btn-ghost" href="#menu">See the menu</a>
       </div>
     </div>
@@ -456,7 +456,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <h1>Beauty that lasts a full moon.</h1>
       <p>Russian nails, LED lashes and brows in Tangier. Done once, done right.</p>
       <div class="ctas">
-        <a class="btn btn-accent" href="https://wa.me/34647591229?text=Hello%20La%20Luna%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">Book on WhatsApp</a>
+        <a class="btn btn-accent" href="https://salimbennani39.github.io/showcase/404.html" target="_blank" rel="noopener">Book on WhatsApp</a>
         <a class="btn btn-ghost" href="#menu">See the menu</a>
       </div>
     </div>
@@ -791,7 +791,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
         <dl class="rv">
           <div><dt>Where</dt><dd>Rue de Fès, Tangier<br><a href="https://www.google.com/maps/search/?api=1&query=Centre+Ville+Tanger" target="_blank" rel="noopener">Open in Google Maps</a></dd></div>
           <div><dt>Hours</dt><dd>Every day, 10:00 to 20:00</dd></div>
-          <div><dt>WhatsApp and phone</dt><dd><a href="https://wa.me/34647591229" target="_blank" rel="noopener">+34 647 591 229</a></dd></div>
+          <div><dt>WhatsApp and phone</dt><dd><a href="https://salimbennani39.github.io/showcase/404.html" target="_blank" rel="noopener">+34 647 591 229</a></dd></div>
           <div><dt>Instagram</dt><dd><a href="#" target="_blank" rel="noopener">@zvezda.beaute</a></dd></div>
         </dl>
         <div class="phase rv" aria-hidden="true">
@@ -812,7 +812,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       <span class="word"><b>ZVEZDA</b><small>beauté russe · Tangier</small></span>
     </a>
     <nav aria-label="Footer">
-      <a href="#services">Services</a><a href="#menu">Menu</a><a href="#ramadan">Ramadan friendly</a><a href="#faq">FAQ</a><a href="#" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/34647591229" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="#services">Services</a><a href="#menu">Menu</a><a href="#ramadan">Ramadan friendly</a><a href="#faq">FAQ</a><a href="#" target="_blank" rel="noopener">Instagram</a><a href="https://salimbennani39.github.io/showcase/404.html" target="_blank" rel="noopener">WhatsApp</a>
     </nav>
     <p class="legal">© 2026 Zvezda beauté russe, Rue de Fès, Tangier. Open every day, 10:00 to 20:00.</p>
   </div>
@@ -1114,7 +1114,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     let day = 'any day';
     if (dateIn.value) { const [y, m, dd] = dateIn.value.split('-').map(Number); day = new Date(y, m - 1, dd).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' }); }
     const msg = 'Hello Zvezda, I would like to book: ' + svc.value + '. Preferred day: ' + day + ', ' + time + '.' + (name ? ' My name is ' + name + '.' : '');
-    window.open('https://wa.me/34647591229?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    window.open('https://salimbennani39.github.io/showcase/404.html' + encodeURIComponent(msg), '_blank', 'noopener');
     ok.textContent = 'WhatsApp is opening. If nothing happened, message us on +34 647 591 229.';
     form.classList.add('sent');
   });
@@ -1122,10 +1122,12 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
   applyHeroMode();
 })();
 </script>
-<script>/* showcase: links that lead nowhere open the Showcase 404 */
+<script>/* showcase: links that lead nowhere, and booking / WhatsApp / call links, open the Showcase 404 */
 (()=>{const U='https://salimbennani39.github.io/showcase/404.html';
-const dead=a=>{const h=(a.getAttribute('href')||'').trim();return h===''||h==='#'||h==='#!'||/^javascript:/i.test(h)};
-addEventListener('click',e=>{if(e.defaultPrevented)return;const a=e.target.closest&&e.target.closest('a');
-if(a&&dead(a)){e.preventDefault();location.href=U;}});})();</script>
+const dead=a=>{const h=(a.getAttribute('href')||'').trim();return h===''||h==='#'||h==='#!'||/^javascript:/i.test(h)||/^(tel:|sms:|mailto:|https?:\/\/(api\.|web\.)?(wa\.me|whatsapp\.com))/i.test(h)};
+addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a');if(!a)return;
+const h=(a.getAttribute('href')||'').trim();const contact=/^(tel:|sms:|mailto:|https?:)/i.test(h);
+if(dead(a)&&(contact||!e.defaultPrevented)){e.preventDefault();e.stopImmediatePropagation();location.href=U;}},true);
+const o=window.open;window.open=function(u){if(/(wa\.me|whatsapp\.com|^tel:)/i.test(String(u||'')))return location.href=U,null;return o.apply(this,arguments)};})();</script>
 </body>
 </html>
